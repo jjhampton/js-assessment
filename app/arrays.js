@@ -2,6 +2,7 @@ exports = (typeof window === 'undefined') ? global : window;
 
 exports.arraysAnswers = {
 
+  // the item parameter is the item that is being checked in the array
   indexOf : function(arr, item) {
     var location;
     var indexChecked;
@@ -30,8 +31,8 @@ exports.arraysAnswers = {
     var newArray;
 
     newArray = arr.filter(function(el) {
-    return (el !== item);
-  });
+      return (el !== item);
+    });
 
     return newArray;
   },
@@ -50,23 +51,30 @@ exports.arraysAnswers = {
   },
 
   append : function(arr, item) {
-
+    arr.push(item);
+    return arr;
   },
 
   truncate : function(arr) {
-
+    var item = arr.length - 1;
+    arr.pop(item);
+    return arr;
   },
 
   prepend : function(arr, item) {
-
+    arr.unshift(item);
+    return arr;
   },
 
   curtail : function(arr) {
-
+    var item = arr[0];
+    arr.shift(item);
+    return arr;
   },
 
   concat : function(arr1, arr2) {
-
+    var arr = arr1.concat(arr2);
+    return arr;
   },
 
   insert : function(arr, item, index) {
