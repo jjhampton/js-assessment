@@ -78,11 +78,22 @@ exports.arraysAnswers = {
   },
 
   insert : function(arr, item, index) {
-
+    arr.forEach(function(el, indexOfEl, array) {
+      if (index === indexOfEl) {
+        array.splice(indexOfEl, 0, item);
+      }
+    });
+    return arr;
   },
 
   count : function(arr, item) {
-
+    var counter = 0;
+    arr.forEach(function(el, index, array) {
+      if (el === item) {
+        counter++;
+      }
+    });
+    return counter;
   },
 
   duplicates : function(arr) {
