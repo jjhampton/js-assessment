@@ -97,14 +97,29 @@ exports.arraysAnswers = {
   },
 
   duplicates : function(arr) {
-
+    var duplicateElements = [];
+    arr.forEach(function(el, index) {
+      var remainingElements = arr.slice(index + 1);
+      var occursAgain = remainingElements.indexOf(el) !== -1;
+      var occurredAlready = duplicateElements.indexOf(el) !== -1;
+      if (occursAgain && !occurredAlready)
+        duplicateElements.push(el);
+    });
+    return duplicateElements;
   },
 
   square : function(arr) {
-
+    return arr.map(function(el) {
+      return el * el;
+    });
   },
 
   findAllOccurrences : function(arr, target) {
-
+    var occurringIndexes = [];
+    arr.forEach(function(el, index) {
+      if (el === target)
+        occurringIndexes.push(index);
+    });
+    return occurringIndexes;
   }
 };
